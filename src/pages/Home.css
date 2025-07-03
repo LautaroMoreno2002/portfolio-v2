@@ -1,0 +1,70 @@
+.home {
+  position: relative;
+  height: calc(100vh - 80px);
+  background-color: black;
+  background-image: url('/background-code.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.red {
+  color: red;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn.blue {
+  background-color: blue;
+  color: white;
+}
+
+.btn.blue:hover {
+  background-color: #0000cc;
+}
+
+.btn.red {
+  background-color: red;
+  color: white;
+}
+
+.btn.red:hover {
+  background-color: #cc0000;
+}

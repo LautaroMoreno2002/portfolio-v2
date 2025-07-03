@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 3px solid red;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: Arial, sans-serif;
+}
+
+.logo .l {
+  color: red;
+  background-color: white;
+  padding: 0 4px;
+}
+
+.logo .e {
+  color: blue;
+  background-color: white;
+  padding: 0 4px;
+}
+
+.logo .m {
+  color: black;
+  background-color: yellow;
+  padding: 0 4px;
+}
+
+.nav a {
+  margin-left: 1rem;
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}

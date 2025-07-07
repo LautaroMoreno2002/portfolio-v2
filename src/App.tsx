@@ -4,6 +4,7 @@ import './index.css';
 import Header from './components/Header';
 import ProjectsSection from './pages/ProjectsSection';
 import Home from './pages/Home';
+import { Skills } from './pages/Skills';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           {/* Cada Route mapea una URL (path) a un componente (element) */}
           <Route path="/" element={<Home />} />
           <Route path="/proyectos" element={<ProjectsSection />} />
+          <Route path="/conocimientos" element={<Skills />} />
         </Routes>
       </main>
     </BrowserRouter>

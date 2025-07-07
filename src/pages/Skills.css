@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+                @keyframes fadeInUp {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+
+                :root {
+                    --bg-color: #1a1a2e;
+                    --primary-color: #e0e0e0;
+                    --secondary-color: #b3b3b3;
+                    --card-bg: #161625;
+                    --accent-color: #279AF1;
+                }
+
+                body {
+                    background-color: var(--bg-color);
+                    color: var(--primary-color);
+                    font-family: 'Inter', sans-serif;
+                    margin: 0;
+                    padding: 2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    min-height: 100vh;
+                }
+
+                .skills-section {
+                    width: 100%;
+                    max-width: 1100px;
+                    text-align: center;
+                    padding: 2rem 1rem;
+                }
+
+                .skills-title {
+                    font-size: 3rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                    color: #fff;
+                    letter-spacing: -1px;
+                }
+                
+                .skills-subtitle {
+                    font-size: 1.1rem;
+                    font-weight: 400;
+                    color: var(--secondary-color);
+                    margin-bottom: 3rem;
+                    max-width: 600px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .skills-filters {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 0.75rem;
+                    margin-bottom: 3.5rem;
+                }
+
+                .filter-button {
+                    background-color: transparent;
+                    color: var(--secondary-color);
+                    border: 1px solid #3a3a5a;
+                    border-radius: 8px;
+                    padding: 0.6rem 1.25rem;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+
+                .filter-button:hover {
+                    background-color: #3a3a5a;
+                    color: #fff;
+                }
+
+                .filter-button.active {
+                    background-color: var(--accent-color);
+                    color: #fff;
+                    border-color: var(--accent-color);
+                    box-shadow: 0 0 15px -3px var(--accent-color);
+                }
+
+                .skills-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                    gap: 2rem;
+                }
+
+                .skill-card {
+                    background: var(--card-bg);
+                    border-radius: 12px;
+                    padding: 1.5rem;
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    box-shadow: 5px 5px 10px #121221, -5px -5px 10px #22223b;
+                }
+
+                .skill-card:before {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: conic-gradient(
+                        transparent,
+                        var(--skill-color),
+                        transparent 30%
+                    );
+                    transform-origin: center;
+                    animation: rotate 6s linear infinite;
+                    opacity: 0;
+                    transition: opacity 0.4s ease;
+                }
+
+                .skill-card:hover:before {
+                    opacity: 0.3;
+                }
+                
+                @keyframes rotate {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+
+                .skill-card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                }
+
+                .skill-icon-wrapper {
+                    background: var(--bg-color);
+                    border-radius: 12px;
+                    padding: 1.5rem;
+                    margin-bottom: 1rem;
+                    z-index: 2;
+                    width: 80px;
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: background-color 0.3s ease;
+                    box-shadow: inset 3px 3px 6px #121221, inset -3px -3px 6px #22223b;
+                }
+
+                .skill-card:hover .skill-icon-wrapper {
+                    background-color: var(--skill-color);
+                }
+
+                .skill-icon {
+                    font-size: 3rem;
+                    color: var(--skill-color);
+                    transition: color 0.3s ease;
+                }
+                
+                .skill-card:hover .skill-icon {
+                    color: #fff;
+                }
+
+                .skill-name {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: var(--primary-color);
+                    margin: 0;
+                    z-index: 2;
+                }
+                
+                @media (max-width: 768px) {
+                    .skills-title { font-size: 2.5rem; }
+                    .skills-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1.5rem; }
+                }

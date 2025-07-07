@@ -20,7 +20,7 @@ const projects: Project[] = [
     id: 1,
     title: 'E-commerce "TechWave"',
     description: 'Plataforma de comercio electrónico completa con carrito de compras, pasarela de pago y panel de administración de productos. Construida con un stack MERN.',
-    imageUrl: 'https://placehold.co/600x400/0D1117/FFFFFF?text=TechWave',
+    imageUrl: 'https://i.ibb.co/gbKBXww5/Captura-de-pantalla-2025-04-24-205828.png',
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'CSS'],
     liveUrl: '#',
     codeUrl: '#',

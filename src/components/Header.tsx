@@ -47,7 +47,7 @@ export default function Header() {
         <nav className="nav-desktop">
           <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Inicio /&gt;</NavLink>
           <NavLink to="/proyectos" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Proyectos /&gt;</NavLink>
-          <NavLink to="/skills" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Skills /&gt;</NavLink>
+          <NavLink to="/conocimientos" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Skills /&gt;</NavLink>
           <NavLink to="/sobre-mi" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Sobre mí /&gt;</NavLink>
           <NavLink to="/contacto" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Contacto /&gt;</NavLink>
         </nav>

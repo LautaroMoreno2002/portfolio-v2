@@ -18,23 +18,78 @@ export interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'E-commerce "TechWave"',
-    description: 'Plataforma de comercio electrónico completa con carrito de compras, pasarela de pago y panel de administración de productos. Construida con un stack MERN.',
-    imageUrl: 'https://i.ibb.co/gbKBXww5/Captura-de-pantalla-2025-04-24-205828.png',
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'CSS'],
-    liveUrl: '#',
-    codeUrl: '#',
+    title: "TPI - Proyecto Profesional I",
+    description:
+      "Proyecto inicial de la materia Proyecto Profesional I. Sistema de predicción de preferencias para empleados con Machine Learning.",
+    imageUrl:
+      "https://i.ibb.co/gbKBXww5/Captura-de-pantalla-2025-04-24-205828.png",
+    tags: ["Django", "Python", "JavaScript", "MHTML5", "CSS3"],
+    liveUrl: "#",
+    codeUrl: "https://github.com/LautaroMoreno2002/TPI-G6-LCS",
   },
   {
     id: 2,
-    title: 'Aplicación de Chat en Tiempo Real',
-    description: 'Una aplicación de chat que permite a los usuarios comunicarse en tiempo real, utilizando WebSockets para una comunicación bidireccional instantánea.',
-    imageUrl: 'https://placehold.co/600x400/0D1117/FFFFFF?text=ChatApp',
-    tags: ['React', 'Socket.IO', 'Node.js', 'TypeScript'],
-    liveUrl: '#',
-    codeUrl: '#',
+    title: "TP - Codo a Codo 2024",
+    description:
+      "Proyecto final del curso Codo A Codo 2024. Emula una página de una farmacia con productos y acceso a una API hecha en Java.",
+    imageUrl: "https://i.ibb.co/vjvX5bs/farmacia-cac-2024.png",
+    tags: ["HTML5", "CSS3", "JavaScript", "Java"],
+    liveUrl: "https://eugesp2.github.io/tpfarmacia/index.html",
+    codeUrl: "https://github.com/EUGESP2/tpfarmacia",
   },
-  // ...otros proyectos
+  {
+    id: 3,
+    title: "Galería interactiva SIDCO",
+    description:
+      "Componente interactivo para una obra de construcción hecha por la empresa Sidco. Se hizo con Javascript y fue insertado en Wordpress.",
+    imageUrl: "https://i.ibb.co/tcQwTJ2/componente-interactivo.png",
+    tags: ["HTML5", "CSS3", "JavaScript", "WordPress"],
+    liveUrl: "https://www.constructorasidco.com/portfolio/plaza-guiraldes/",
+    codeUrl: "",
+  },
+  {
+    id: 4,
+    title: "Lights Out Web",
+    description:
+      "El juego LightsOut, tanto en modo clásico como en el modo variante, desarrollado con el framework Angular.",
+    imageUrl: "https://i.ibb.co/0BjTHkN/lights-out.png",
+    tags: ["HTML5", "CSS3", "Typescript", "Angular"],
+    liveUrl: "https://lights-out-web-angular18.netlify.app/",
+    codeUrl: "https://github.com/LautaroMoreno2002/lightsOut-web",
+  },
+  {
+    id: 5,
+    title: "TP - Bases de Datos",
+    description:
+      'Trabajo final de la materia "Base de datos". Se ejecuta por la terminal, simula la funcionalidad del SIU Guaraní. Carga alumnos, materias, inscribe a los alumnos en las materias, cierra semestres, ejecuta SP y Triggers.',
+    imageUrl: "https://i.ibb.co/JyGL0p5/TP-Base-de-Datos.jpg",
+    tags: ["GO", "PostgreSQL", "PL/PGSQL"],
+    liveUrl: "",
+    codeUrl:
+      "https://gitlab.com/lautymoreno80/lozano-moreno-schaab-vallejos-db1",
+  },
+  {
+    id: 6,
+    title: "Clustering Humano - Programación III",
+    description:
+      "Aplicación hecha en Java, con la librería WindowBuilder, que permite separar un grupo de personas según las similitudes que tengan en sus gustos. Se visualizarán utilizando un mapa, propio de la librería JMapViewer.",
+    imageUrl: "https://i.ibb.co/2jrQNdD/clustering-Humano.png",
+    tags: ["Java", "WindowBuilder", "JMapViewer"],
+    liveUrl: "",
+    codeUrl:
+      "https://github.com/LautaroMoreno2002/Trabajo-Practico2-Programacion3",
+  },
+  {
+    id: 7,
+    title: "Castlevania: Barbarianna Viking Edition",
+    description:
+      "Juego hecho en Java y un entorno visual para la interfaz gráfica, donde el jugador es Barbarianna, cuyo objetivo es llegar a la Comodore 128Kb para viajar en el tiempo. Para esto, debe ir escalando los pisos del castillo mientras enfrenta a multiples Velociraptors que lanzan rayos utilizando su poderoso martillo Mjolnir.",
+    imageUrl: "https://i.ibb.co/Svj9mqV/Barbariana.png",
+    tags: ["Java"],
+    liveUrl: "",
+    codeUrl:
+      "https://github.com/LautaroMoreno2002/trabajo-practico-programacion1",
+  },
 ];
 
 const ProjectsSection: React.FC = () => {

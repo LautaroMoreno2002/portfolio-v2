@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl,
       <div className="card-content">
         <h3 className="card-title">{title}</h3>
         <p className="card-description">{description}</p>
-        
+
         <div className="card-tags">
           {tags.map((tag) => (
             <span key={tag} className="card-tag">
@@ -48,24 +48,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl,
         </div>
 
         <div className="card-footer">
-          <a
-            href={codeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="card-link"
-          >
-            <Github size={20} />
-            <span>Código</span>
-          </a>
-          <a
-            href={liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="card-link"
-          >
-            <ArrowUpRight size={20} />
-            <span>Demo</span>
-          </a>
+          {codeUrl && (
+            <a
+              href={codeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-link"
+            >
+              <Github size={20} />
+              <span>Código</span>
+            </a>
+          )}
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-link"
+            >
+              <ArrowUpRight size={20} />
+              <span>Demo</span>
+            </a>
+          )}
         </div>
       </div>
     </motion.div>

@@ -1,4 +1,4 @@
-.home {
+/* .home {
   position: relative;
   height: calc(100vh - 80px);
   background-color: black;
@@ -67,4 +67,46 @@ h2 {
 
 .btn.red:hover {
   background-color: #cc0000;
+}
+ */
+.homepage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: calc(100vh - 80px); /* Ajusta la altura para descontar el navbar */
+  padding: 2rem;
+}
+
+.homepage-content {
+  max-width: 600px;
+}
+
+.homepage-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.homepage-subtitle {
+  font-size: 1.25rem;
+  color: #a3a3a3;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.homepage-cta-button {
+  display: inline-block;
+  background-color: #2dd4bf; /* teal-400 */
+  color: #0a0a0a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.homepage-cta-button:hover {
+  background-color: #5eead4; /* teal-300 */
+  transform: translateY(-2px);
 }

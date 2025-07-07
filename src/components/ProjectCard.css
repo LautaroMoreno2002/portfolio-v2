@@ -1,0 +1,91 @@
+.project-card {
+  background-color: #171717; /* neutral-900 */
+  border-radius: 0.5rem; /* 8px */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #262626; /* neutral-800 */
+}
+
+.card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto de zoom en la imagen al hacer hover en la tarjeta */
+.project-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.card-content {
+  padding: 1.5rem; /* 24px */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Permite que este contenedor crezca y empuje el footer hacia abajo */
+}
+
+.card-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.card-description {
+  color: #a3a3a3; /* neutral-400 */
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  flex-grow: 1; /* Empuja el resto del contenido hacia abajo */
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-tag {
+  background-color: rgba(13, 148, 136, 0.25); /* teal-900/50 */
+  color: #5eead4; /* teal-300 */
+  font-size: 0.75rem; /* 12px */
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+}
+
+.card-footer {
+  margin-top: auto; /* Empuja el footer al final del card-content */
+  padding-top: 1rem;
+  border-top: 1px solid #262626; /* neutral-800 */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #d4d4d4; /* neutral-300 */
+  transition: color 0.2s ease-in-out;
+}
+
+.card-link:hover {
+  color: #2dd4bf; /* teal-400 */
+}

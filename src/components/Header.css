@@ -1,4 +1,4 @@
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,4 +45,169 @@
 
 .nav a:hover {
   text-decoration: underline;
+} */
+
+/* Importamos fuentes modernas de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@700&display=swap');
+
+.header {
+  background-color: #111827; /* Fondo oscuro (Gris azulado) */
+  padding: 1rem 0;
+  border-bottom: 1px solid #374151; /* Borde sutil */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilo del Logo */
+.logo-link {
+  text-decoration: none;
+}
+
+.logo {
+  display: flex;
+  font-family: 'Poppins', sans-serif; /* Fuente más audaz y moderna */
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo span {
+  padding: 0.1rem 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.logo .l {
+  background-color: #EF4444; /* Rojo vibrante */
+  color: #ffffff;
+  border-radius: 4px 0 0 4px;
+}
+
+.logo .e {
+  background-color: #3B82F6; /* Azul vibrante */
+  color: #ffffff;
+}
+
+.logo .m {
+  background-color: #FBBF24; /* Amarillo/Ámbar */
+  color: #111827;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Estilos de Navegación */
+.nav-desktop {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #D1D5DB; /* Gris claro */
+  text-decoration: none;
+  font-family: 'Fira Code', monospace; /* Fuente de código para un look tech */
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+/* Línea animada debajo del enlace */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #3B82F6; /* Azul para la línea */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Estilo para el enlace activo */
+.nav-link.active {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+/* Estilos para el Menú Móvil */
+.menu-toggle {
+  display: none; /* Oculto en escritorio */
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.nav-mobile {
+  display: none; /* Oculto en escritorio */
+  flex-direction: column;
+  background-color: #111827;
+  padding: 1rem 2rem 2rem;
+  border-top: 1px solid #374151;
+  animation: slide-down 0.3s ease-out;
+}
+
+.nav-link-mobile {
+  color: #D1D5DB;
+  padding: 1rem 0;
+  text-align: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #1f2937;
+  transition: background-color 0.2s ease;
+}
+
+.nav-link-mobile:hover {
+  background-color: #1f2937;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Query para Responsive */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+  .menu-toggle, .nav-mobile {
+    display: flex;
+  }
 }

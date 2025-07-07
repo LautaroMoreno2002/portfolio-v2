@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: calc(100vh - 80px); /* Ajusta la altura para descontar el navbar */
+  height: calc(100vh - 145px); /* Ajusta la altura para descontar el navbar */
 }
 
 .homepage-content {

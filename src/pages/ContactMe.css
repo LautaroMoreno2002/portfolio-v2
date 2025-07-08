@@ -9,25 +9,11 @@
   }
 }
 
-/* NOTA: Los estilos del `body` deberían estar en un archivo CSS global 
-  (como App.css o index.css) para no repetirlos en cada componente.
-*/
-body {
-  background-color: var(--bg-color);
-  color: var(--text-primary);
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
 .contact-section {
-  width: 100vw;
+  /* ✨ CAMBIO 1: Usa 100% en lugar de 100vw para evitar desbordamiento horizontal */
+  width: 100%;
   max-width: 90rem;
-  /* Usando variables para el fondo y borde */
+  min-width: 200px; /* Se mantiene el ancho mínimo que pediste */
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 16px;
@@ -35,6 +21,8 @@ body {
   margin-top: 3em;
   height: calc(100vh - 195px);
   transition: background-color 0.3s ease, border-color 0.3s ease;
+  /* ✨ CAMBIO 2: Esencial para que el padding no cause desbordamiento */
+  box-sizing: border-box; 
 }
 
 .contact-container {
@@ -54,7 +42,6 @@ body {
   font-size: 3rem;
   font-weight: 700;
   margin: 0 0 1rem 0;
-  /* El gradiente ahora usa las variables de acento */
   background: -webkit-linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -63,7 +50,6 @@ body {
 .contact-description {
   font-size: 1.1rem;
   line-height: 1.6;
-  /* El texto secundario usa una variable */
   color: var(--text-secondary);
   margin-bottom: 2rem;
 }
@@ -83,6 +69,11 @@ body {
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
+}
+
+/* ✨ CAMBIO 3: Permite que el texto largo (email) se rompa y no desborde */
+.contact-link-item span {
+  word-break: break-all;
 }
 
 .contact-link-item:hover {
@@ -115,17 +106,16 @@ body {
   font-size: 1rem;
   color: var(--text-primary);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--accent-primary);
-  /* La sombra de foco también usa el color de acento */
-  box-shadow: 0 0 0 3px var(--accent-primary-transparent, rgba(88, 166, 255, 0.2)); /* Fallback por si la variable no está definida */
+  box-shadow: 0 0 0 3px var(--accent-primary-transparent, rgba(88, 166, 255, 0.2));
 }
 
-/* Los colores de error se mantienen fijos para consistencia */
 .form-group input.invalid,
 .form-group textarea.invalid {
   border-color: #f85149;
@@ -143,9 +133,7 @@ body {
   justify-content: center;
   gap: 0.75rem;
   width: 100%;
-  /* El botón de envío usa el color de acento secundario */
   background-color: var(--accent-secondary);
-  /* El color del texto es el del fondo para asegurar contraste */
   color: var(--bg-color);
   border: none;
   border-radius: 8px;
@@ -180,14 +168,12 @@ body {
 }
 
 .feedback-message.success {
-  /* El mensaje de éxito usa el color de acento secundario */
   background-color: var(--accent-secondary-transparent, rgba(63, 185, 80, 0.1));
   color: var(--accent-secondary);
   border: 1px solid var(--accent-secondary);
 }
 
 .feedback-message.error {
-  /* El mensaje de error se mantiene rojo */
   background-color: rgba(248, 81, 73, 0.1);
   color: #f85149;
   border: 1px solid rgba(248, 81, 73, 0.3);
@@ -199,10 +185,12 @@ body {
 
 @media (max-width: 992px) {
   .contact-section {
-    height: fit-content;
+    height: auto; /* Cambiado de fit-content a auto para mayor compatibilidad */
+    padding: 2rem; /* Reducimos padding en tablets */
   }
   .contact-container {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .contact-info {
     text-align: center;
@@ -211,5 +199,29 @@ body {
     flex-direction: row;
     justify-content: center;
     margin-top: 0;
+    flex-wrap: wrap; /* Permite que los links se ajusten si no caben */
+  }
+}
+
+/* ✨ CAMBIO 4: Media query más agresiva para pantallas muy chicas */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 1rem; /* Padding mínimo */
+  }
+
+  .contact-container {
+    gap: 1.5rem;
+  }
+
+  .contact-title {
+    font-size: 2.2rem; /* Se reduce drásticamente el título */
+  }
+
+  .contact-description {
+    font-size: 0.9rem;
+  }
+
+  .contact-links {
+    gap: 0.5rem 1rem; /* Menos espacio entre links */
   }
 }

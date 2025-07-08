@@ -22,7 +22,7 @@ export default function Home() {
     // </section>
     <div className="homepage">
       <div className="homepage-content">
-        <h1 className="homepage-title">Bienvenido a Mi Portafolio</h1>
+        <h1 className="homepage-title typing-effect">Bienvenido a Mi Portafolio</h1>
         <p className="homepage-subtitle">
           Soy un desarrollador apasionado por crear aplicaciones web modernas y funcionales.
         </p>

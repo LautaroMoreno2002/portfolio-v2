@@ -60,4 +60,40 @@
     .homepage-subtitle {
         font-size: 1.1rem;
     }
+    /* ✨ AQUÍ LA MAGIA ✨ */
+  /* Aplicamos estos estilos al título cuando tiene el efecto */
+  .homepage-title.typing-effect {
+      /* 1. Permite que el texto se divida en varias líneas */
+      white-space: normal;
+
+      /* 2. Desactiva la animación de escritura y el parpadeo */
+      /* animation: none; */
+
+      /* 3. Elimina el cursor, que ya no es necesario */
+      /* border-right: none; */
+      
+      /* 4. Resetea el ancho para que ocupe el espacio disponible */
+      width: auto;
+  }
+}
+
+.typing-effect {
+ overflow: hidden; /* Asegura que el texto no se desborde antes de la animación */
+ white-space: nowrap; /* Evita que el texto pase a la siguiente línea */
+ border-right: .15em solid orange; /* Simula el cursor */
+ animation: 
+   typing 3.5s steps(30, end) infinite alternate,
+   blink-caret .75s step-end infinite alternate;
+}
+
+
+@keyframes typing {
+ from { width: 0 }
+ to { width: 100% }
+}
+
+
+@keyframes blink-caret {
+ from, to { border-color: transparent }
+ 50% { border-color: orange; }
 }

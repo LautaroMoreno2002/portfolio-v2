@@ -53,7 +53,7 @@
 /* Media Query para pantallas más pequeñas */
 @media (max-width: 768px) {
   .projects-section {
-    padding: 3rem 1rem;
+    padding: 3rem 0rem;
   }
 
   .projects-title {

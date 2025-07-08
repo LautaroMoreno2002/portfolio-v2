@@ -36,20 +36,6 @@
   }
 }
 
-/* --- Estilos Generales --- */
-/* NOTA: Los estilos del `body` deberían estar en un archivo CSS global */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-primary);
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
 /* --- Contenedor de la Sección --- */
 .about-section {
   width: 100vw;

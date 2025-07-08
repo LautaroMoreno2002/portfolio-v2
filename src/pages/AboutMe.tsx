@@ -15,7 +15,7 @@ export const AboutMe: React.FC = () => {
                 <div className="about-image-wrapper">
                     <div className="image-card">
                         <img 
-                            src={profileImageUrl} 
+                            // src={profileImageUrl} 
                             alt="Foto de perfil de Lautaro Moreno" 
                             className="about-image"
                             onError={(e) => {

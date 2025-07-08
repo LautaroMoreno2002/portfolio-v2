@@ -29,6 +29,10 @@
   /* El título usa el color de texto primario del tema */
   color: var(--text-primary);
   letter-spacing: -1px;
+  
+  background: -webkit-linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .skills-subtitle {

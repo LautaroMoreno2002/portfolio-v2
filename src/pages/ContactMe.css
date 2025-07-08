@@ -9,9 +9,12 @@
   }
 }
 
+/* NOTA: Los estilos del `body` deberían estar en un archivo CSS global 
+  (como App.css o index.css) para no repetirlos en cada componente.
+*/
 body {
-  background-color: #0d1117;
-  color: #c9d1d9;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
   font-family: "Inter", sans-serif;
   margin: 0;
   padding: 2rem;
@@ -22,16 +25,16 @@ body {
 }
 
 .contact-section {
-  /* width: 100%;
-  max-width: 1100px; */
   width: 100vw;
   max-width: 90rem;
-  background-color: #161b22;
+  /* Usando variables para el fondo y borde */
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 3rem;
-  border: 1px solid #30363d;
   margin-top: 3em;
   height: calc(100vh - 195px);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .contact-container {
@@ -51,7 +54,8 @@ body {
   font-size: 3rem;
   font-weight: 700;
   margin: 0 0 1rem 0;
-  background: -webkit-linear-gradient(45deg, #58a6ff, #3fb950);
+  /* El gradiente ahora usa las variables de acento */
+  background: -webkit-linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -59,7 +63,8 @@ body {
 .contact-description {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #8b949e;
+  /* El texto secundario usa una variable */
+  color: var(--text-secondary);
   margin-bottom: 2rem;
 }
 
@@ -67,21 +72,21 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: auto; /* Empuja los links hacia abajo */
+  margin-top: auto;
 }
 
 .contact-link-item {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  color: #8b949e;
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 .contact-link-item:hover {
-  color: #58a6ff;
+  color: var(--accent-primary);
 }
 
 .form-wrapper {
@@ -96,29 +101,31 @@ body {
   display: block;
   font-size: 0.9rem;
   font-weight: 500;
-  color: #8b949e;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  background-color: #0d1117;
-  border: 1px solid #30363d;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 0.8rem 1rem;
   font-size: 1rem;
-  color: #c9d1d9;
+  color: var(--text-primary);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #58a6ff;
-  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+  border-color: var(--accent-primary);
+  /* La sombra de foco también usa el color de acento */
+  box-shadow: 0 0 0 3px var(--accent-primary-transparent, rgba(88, 166, 255, 0.2)); /* Fallback por si la variable no está definida */
 }
 
+/* Los colores de error se mantienen fijos para consistencia */
 .form-group input.invalid,
 .form-group textarea.invalid {
   border-color: #f85149;
@@ -136,23 +143,25 @@ body {
   justify-content: center;
   gap: 0.75rem;
   width: 100%;
-  background-color: #238636;
-  color: #ffffff;
+  /* El botón de envío usa el color de acento secundario */
+  background-color: var(--accent-secondary);
+  /* El color del texto es el del fondo para asegurar contraste */
+  color: var(--bg-color);
   border: none;
   border-radius: 8px;
   padding: 0.9rem 1.75rem;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: filter 0.3s ease, background-color 0.3s ease;
 }
 
 .submit-button:hover:not(:disabled) {
-  background-color: #2ea043;
+  filter: brightness(1.1);
 }
 
 .submit-button:disabled {
-  background-color: #30363d;
+  background-color: var(--border-color);
   cursor: not-allowed;
 }
 
@@ -171,12 +180,14 @@ body {
 }
 
 .feedback-message.success {
-  background-color: rgba(63, 185, 80, 0.1);
-  color: #3fb950;
-  border: 1px solid rgba(63, 185, 80, 0.3);
+  /* El mensaje de éxito usa el color de acento secundario */
+  background-color: var(--accent-secondary-transparent, rgba(63, 185, 80, 0.1));
+  color: var(--accent-secondary);
+  border: 1px solid var(--accent-secondary);
 }
 
 .feedback-message.error {
+  /* El mensaje de error se mantiene rojo */
   background-color: rgba(248, 81, 73, 0.1);
   color: #f85149;
   border: 1px solid rgba(248, 81, 73, 0.3);

@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import { Skills } from './pages/Skills';
 import { AboutMe } from './pages/AboutMe';
 import { ContactMe } from './pages/ContactMe';
+import ThemeSwitcher from './components/ThemeSwitcher';
 
 const App: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: React.FC = () => {
           <Route path='/contacto' element={<ContactMe />} />
         </Routes>
       </main>
+      <ThemeSwitcher />
     </BrowserRouter>
   );
 }

@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@700&display=swap');
 
 .header {
-  background-color: #111827; /* Fondo oscuro (Gris azulado) */
+  /* Usando variables para el fondo y borde */
+  background-color: var(--card-bg);
   padding: 1rem 0;
-  border-bottom: 1px solid #374151; /* Borde sutil */
+  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .header-container {
@@ -20,14 +21,14 @@
   align-items: center;
 }
 
-/* Estilo del Logo */
+/* --- ESTILOS DEL LOGO (SIN CAMBIOS, SEGÚN SOLICITADO) --- */
 .logo-link {
   text-decoration: none;
 }
 
 .logo {
   display: flex;
-  font-family: 'Poppins', sans-serif; /* Fuente más audaz y moderna */
+  font-family: 'Poppins', sans-serif;
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -44,23 +45,23 @@
 }
 
 .logo .l {
-  background-color: #EF4444; /* Rojo vibrante */
+  background-color: #EF4444; /* Rojo vibrante (Mantenido) */
   color: #ffffff;
   border-radius: 4px 0 0 4px;
 }
 
 .logo .e {
-  background-color: #3B82F6; /* Azul vibrante */
+  background-color: #3B82F6; /* Azul vibrante (Mantenido) */
   color: #ffffff;
 }
 
 .logo .m {
-  background-color: #FBBF24; /* Amarillo/Ámbar */
+  background-color: #FBBF24; /* Amarillo/Ámbar (Mantenido) */
   color: #111827;
   border-radius: 0 4px 4px 0;
 }
 
-/* Estilos de Navegación */
+/* --- ESTILOS DE NAVEGACIÓN (ADAPTADOS AL TEMA) --- */
 .nav-desktop {
   display: flex;
   gap: 1rem;
@@ -68,9 +69,9 @@
 }
 
 .nav-link {
-  color: #D1D5DB; /* Gris claro */
+  color: var(--text-secondary); /* Variable de tema */
   text-decoration: none;
-  font-family: 'Fira Code', monospace; /* Fuente de código para un look tech */
+  font-family: 'Fira Code', monospace;
   font-size: 0.95rem;
   position: relative;
   padding: 0.5rem 0;
@@ -78,10 +79,9 @@
 }
 
 .nav-link:hover {
-  color: #ffffff;
+  color: var(--text-primary); /* Variable de tema */
 }
 
-/* Línea animada debajo del enlace */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -89,7 +89,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #3B82F6; /* Azul para la línea */
+  background-color: var(--accent-primary); /* Variable de tema */
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
@@ -100,9 +100,8 @@
   transform-origin: bottom left;
 }
 
-/* Estilo para el enlace activo */
 .nav-link.active {
-  color: #ffffff;
+  color: var(--text-primary); /* Variable de tema */
   font-weight: 700;
 }
 
@@ -111,35 +110,35 @@
   transform-origin: bottom left;
 }
 
-
-/* Estilos para el Menú Móvil */
+/* --- ESTILOS PARA EL MENÚ MÓVIL (ADAPTADOS AL TEMA) --- */
 .menu-toggle {
-  display: none; /* Oculto en escritorio */
-  color: #ffffff;
+  display: none;
+  color: var(--text-primary); /* Variable de tema */
   cursor: pointer;
 }
 
 .nav-mobile {
-  display: none; /* Oculto en escritorio */
+  display: none;
   flex-direction: column;
-  background-color: #111827;
+  background-color: var(--card-bg); /* Variable de tema */
   padding: 1rem 2rem 2rem;
-  border-top: 1px solid #374151;
+  border-top: 1px solid var(--border-color); /* Variable de tema */
   animation: slide-down 0.3s ease-out;
 }
 
 .nav-link-mobile {
-  color: #D1D5DB;
+  color: var(--text-secondary); /* Variable de tema */
   padding: 1rem 0;
   text-align: center;
   font-family: 'Fira Code', monospace;
   font-size: 1.1rem;
-  border-bottom: 1px solid #1f2937;
-  transition: background-color 0.2s ease;
+  border-bottom: 1px solid var(--border-color); /* Variable de tema */
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-link-mobile:hover {
-  background-color: #1f2937;
+  background-color: var(--bg-color); /* Variable de tema */
+  color: var(--text-primary); /* Variable de tema */
 }
 
 @keyframes slide-down {

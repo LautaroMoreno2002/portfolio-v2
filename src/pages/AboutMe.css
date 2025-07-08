@@ -23,22 +23,24 @@
   }
 }
 
+/* La animación de resplandor ahora usa el color de acento del tema */
 @keyframes subtleGlow {
   0% {
-    box-shadow: 0 0 25px -5px rgba(167, 139, 250, 0.3);
+    box-shadow: 0 0 25px -5px var(--accent-primary-transparent, rgba(88, 166, 255, 0.3));
   }
   50% {
-    box-shadow: 0 0 35px -5px rgba(167, 139, 250, 0.5);
+    box-shadow: 0 0 35px -5px var(--accent-primary-transparent, rgba(88, 166, 255, 0.5));
   }
   100% {
-    box-shadow: 0 0 25px -5px rgba(167, 139, 250, 0.3);
+    box-shadow: 0 0 25px -5px var(--accent-primary-transparent, rgba(88, 166, 255, 0.3));
   }
 }
 
 /* --- Estilos Generales --- */
+/* NOTA: Los estilos del `body` deberían estar en un archivo CSS global */
 body {
-  background-color: #0d1117;
-  color: #c9d1d9;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
   font-family: "Inter", sans-serif;
   margin: 0;
   padding: 2rem;
@@ -50,17 +52,17 @@ body {
 
 /* --- Contenedor de la Sección --- */
 .about-section {
-  /* width: 100%;
-  max-width: 1100px; */
   width: 100vw;
   max-width: 90rem;
   height: calc(100vh - 145px);
   display: grid;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
 }
 
 .about-container {
   display: grid;
-  grid-template-columns: 1fr 1.5fr; /* Columna de imagen más pequeña */
+  grid-template-columns: 1fr 1.5fr;
   align-items: center;
   gap: 4rem;
 }
@@ -74,7 +76,8 @@ body {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: -webkit-linear-gradient(45deg, #a78bfa, #f472b6);
+  /* El gradiente usa las variables de acento del tema */
+  background: -webkit-linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -1.5px;
@@ -84,11 +87,11 @@ body {
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
-  color: #8b949e;
+  color: var(--text-secondary);
 }
 
 .about-description strong {
-  color: #c9d1d9;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
@@ -97,8 +100,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: #a78bfa;
-  color: #0d1117;
+  background-color: var(--accent-primary);
+  color: var(--bg-color);
   border: none;
   border-radius: 8px;
   padding: 0.9rem 1.75rem;
@@ -112,7 +115,7 @@ body {
 
 .cv-button:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px -5px rgba(167, 139, 250, 0.3);
+  box-shadow: 0 10px 20px -5px var(--accent-primary-transparent, rgba(88, 166, 255, 0.3));
 }
 
 .button-icon {
@@ -130,9 +133,10 @@ body {
 .image-card {
   position: relative;
   padding: 1rem;
-  background: #161b22;
+  background: var(--card-bg);
   border-radius: 16px;
   animation: subtleGlow 4s ease-in-out infinite;
+  border: 1px solid var(--border-color);
 }
 
 .about-image {
@@ -160,7 +164,7 @@ body {
     text-align: center;
   }
   .about-image-wrapper {
-    order: -1; /* Mueve la imagen arriba en móvil */
+    order: -1;
     margin-bottom: 2rem;
   }
   .cv-button {

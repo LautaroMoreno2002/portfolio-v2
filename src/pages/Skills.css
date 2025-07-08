@@ -10,26 +10,32 @@
     transform: translateY(0);
   }
 }
+
 .skills-section {
   width: 100vw;
   max-width: 90rem;
   text-align: center;
   padding: 2rem 1rem;
   height: calc(100vh - 145px);
+  /* El fondo de la sección ahora usa una variable */
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
 }
 
 .skills-title {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #fff;
+  /* El título usa el color de texto primario del tema */
+  color: var(--text-primary);
   letter-spacing: -1px;
 }
 
 .skills-subtitle {
   font-size: 1.1rem;
   font-weight: 400;
-  color: var(--secondary-color);
+  /* El subtítulo usa el color de texto secundario del tema */
+  color: var(--text-secondary);
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
@@ -46,8 +52,8 @@
 
 .filter-button {
   background-color: transparent;
-  color: var(--secondary-color);
-  border: 1px solid #3a3a5a;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 0.6rem 1.25rem;
   font-size: 0.9rem;
@@ -57,15 +63,15 @@
 }
 
 .filter-button:hover {
-  background-color: #3a3a5a;
-  color: #fff;
+  background-color: var(--border-color);
+  color: var(--text-primary);
 }
 
 .filter-button.active {
-  background-color: var(--accent-color);
-  color: #fff;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 15px -3px var(--accent-color);
+  background-color: var(--accent-primary);
+  color: var(--bg-color); /* Color de texto que contrasta con el acento */
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px -3px var(--accent-primary);
 }
 
 .skills-grid {
@@ -86,9 +92,12 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 5px 5px 10px #121221, -5px -5px 10px #22223b;
+  /* Sombra simplificada para mejor compatibilidad entre temas */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
 }
 
+/* El resplandor giratorio usa el color específico de la habilidad, lo cual está bien */
 .skill-card:before {
   content: "";
   position: absolute;
@@ -104,7 +113,7 @@
 }
 
 .skill-card:hover:before {
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 @keyframes rotate {
@@ -118,7 +127,7 @@
 
 .skill-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .skill-icon-wrapper {
@@ -133,27 +142,27 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
-  box-shadow: inset 3px 3px 6px #121221, inset -3px -3px 6px #22223b;
+  border: 1px solid var(--border-color);
 }
 
 .skill-card:hover .skill-icon-wrapper {
-  background-color: var(--skill-color);
+  background-color: var(--skill-color); /* El color de la tecnología */
 }
 
 .skill-icon {
   font-size: 3rem;
-  color: var(--skill-color);
+  color: var(--skill-color); /* Color de la tecnología */
   transition: color 0.3s ease;
 }
 
 .skill-card:hover .skill-icon {
-  color: #fff;
+  color: white; /* Usamos blanco para asegurar contraste sobre el fondo de color */
 }
 
 .skill-name {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--text-primary);
   margin: 0;
   z-index: 2;
 }
@@ -163,7 +172,7 @@
     font-size: 2.5rem;
   }
   .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1.5rem;
   }
 }

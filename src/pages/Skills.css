@@ -10,34 +10,12 @@
     transform: translateY(0);
   }
 }
-
-/* :root {
-  --bg-color: #1a1a2e;
-  --primary-color: #e0e0e0;
-  --secondary-color: #b3b3b3;
-  --card-bg: #161625;
-  --accent-color: #279af1;
-} */
-
-/* body {
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-} */
-
 .skills-section {
-  /* width: 100vw; */
-  /* max-width: 1100px; */
   width: 100vw;
   max-width: 90rem;
   text-align: center;
   padding: 2rem 1rem;
+  height: calc(100vh - 145px);
 }
 
 .skills-title {
@@ -92,7 +70,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 2rem;
 }
 

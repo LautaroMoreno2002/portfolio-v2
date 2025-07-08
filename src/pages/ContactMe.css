@@ -38,6 +38,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 3rem;
+  height: 100%;
+  align-items: center;
 }
 
 .contact-info {
@@ -178,6 +180,10 @@ body {
   background-color: rgba(248, 81, 73, 0.1);
   color: #f85149;
   border: 1px solid rgba(248, 81, 73, 0.3);
+}
+
+#message {
+  resize: none;
 }
 
 @media (max-width: 992px) {

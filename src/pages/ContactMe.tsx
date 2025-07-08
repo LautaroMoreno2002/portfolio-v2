@@ -89,15 +89,15 @@ export const ContactMe: React.FC = () => {
                         Estoy disponible para nuevos proyectos y colaboraciones. Si tienes una idea en mente, no dudes en contactarme.
                     </p>
                     <div className="contact-links">
-                        <a href="mailto:lautaro.moreno.dev@gmail.com" className="contact-link-item">
+                        <a href="mailto:lemoreno2002@gmail.com" className="contact-link-item">
                             <FiMail />
-                            <span>lautaro.moreno.dev@gmail.com</span>
+                            <span>lemoreno2002@gmail.com</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/lautaro-moreno-dev/" target="_blank" rel="noopener noreferrer" className="contact-link-item">
+                        <a href="https://www.linkedin.com/in/lautaro-moreno/" target="_blank" rel="noopener noreferrer" className="contact-link-item">
                             <FiLinkedin />
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://github.com/lautaro-moreno" target="_blank" rel="noopener noreferrer" className="contact-link-item">
+                        <a href="https://github.com/LautaroMoreno2002" target="_blank" rel="noopener noreferrer" className="contact-link-item">
                             <FiGithub />
                             <span>GitHub</span>
                         </a>

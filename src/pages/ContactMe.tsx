@@ -1,148 +1,212 @@
-import React, { useState, type FormEvent } from 'react';
-// Importamos íconos para los enlaces y estados del formulario
-import "./ContactMe.css"
-import { FiGithub, FiLinkedin, FiMail, FiSend } from 'react-icons/fi';
-import { FaSpinner } from 'react-icons/fa';
-import { IoIosCheckmarkCircleOutline, IoIosWarning } from 'react-icons/io';
+import React, { useState } from "react";
+import axios from "axios";
+import * as Notiflix from "notiflix";
+import { FaLinkedin, FaGithub, FaEnvelope, FaSpinner } from "react-icons/fa";
 
-// --- COMPONENTE: ContactForm ---
+// Importamos los estilos. Asegúrate de que la ruta sea correcta.
+import "./ContactMe.css";
+
 export const ContactMe: React.FC = () => {
-    // Estado para manejar los datos del formulario
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: '',
-    });
+  // Estado para manejar los datos del formulario
+  const [formData, setFormData] = useState({
+    email: "",
+    asunto: "",
+    mensaje: "",
+  });
 
-    // Estado para los errores de validación
-    const [errors, setErrors] = useState({
-        name: '',
-        email: '',
-        message: '',
-    });
+  // Estado para manejar los errores de validación
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-    // Estado para el proceso de envío del formulario
-    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  // Estado para la animación de carga
+  const [isLoading, setIsLoading] = useState(false);
 
-    // Función para validar el formulario
-    const validateForm = (): boolean => {
-        let isValid = true;
-        const newErrors = { name: '', email: '', message: '' };
+  // Estado para los mensajes de feedback (éxito o error tras el envío)
+  const [feedback, setFeedback] = useState({ type: "", message: "" });
 
-        if (!formData.name.trim()) {
-            newErrors.name = 'El nombre es obligatorio.';
-            isValid = false;
-        }
-        if (!formData.email.trim()) {
-            newErrors.email = 'El email es obligatorio.';
-            isValid = false;
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = 'El formato del email no es válido.';
-            isValid = false;
-        }
-        if (!formData.message.trim()) {
-            newErrors.message = 'El mensaje no puede estar vacío.';
-            isValid = false;
-        }
-        
-        setErrors(newErrors);
-        return isValid;
-    };
+  // Función para validar el formulario
+  const validateForm = (): boolean => {
+    const newErrors: { [key: string]: string } = {};
+    if (!formData.email) {
+      newErrors.email = "El email es requerido.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "El formato del email no es válido.";
+    }
+    if (!formData.asunto) {
+      newErrors.asunto = "El asunto es requerido.";
+    }
+    if (!formData.mensaje) {
+      newErrors.mensaje = "El mensaje no puede estar vacío.";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-    // Función para manejar el envío
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        if (!validateForm()) {
-            return;
-        }
+  // Manejador para los cambios en los inputs
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-        setStatus('sending');
-        // Simulación de envío a un backend
-        setTimeout(() => {
-            // Simula un éxito aleatorio
-            if (Math.random() > 0.2) {
-                setStatus('success');
-                setFormData({ name: '', email: '', message: '' }); // Limpia el formulario
-            } else {
-                setStatus('error');
-            }
-        }, 2000);
-    };
-    
-    // Función para manejar cambios en los inputs
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-        // Limpia el error del campo cuando el usuario empieza a escribir
-        if(errors[name as keyof typeof errors]) {
-            setErrors(prev => ({...prev, [name]: ''}));
-        }
-    };
+  // Manejador para el envío del formulario
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Evita que la página se recargue
+    setFeedback({ type: "", message: "" }); // Limpia feedback anterior
 
-    return (
-        <section className="contact-section">
-            <div className="contact-container">
-                {/* Columna de Información */}
-                <div className="contact-info">
-                    <h2 className="contact-title">Hablemos</h2>
-                    <p className="contact-description">
-                        Estoy disponible para nuevos proyectos y colaboraciones. Si tienes una idea en mente, no dudes en contactarme.
-                    </p>
-                    <div className="contact-links">
-                        <a href="mailto:lemoreno2002@gmail.com" className="contact-link-item">
-                            <FiMail />
-                            <span>lemoreno2002@gmail.com</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/lautaro-moreno/" target="_blank" rel="noopener noreferrer" className="contact-link-item">
-                            <FiLinkedin />
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/LautaroMoreno2002" target="_blank" rel="noopener noreferrer" className="contact-link-item">
-                            <FiGithub />
-                            <span>GitHub</span>
-                        </a>
-                    </div>
-                </div>
+    if (!validateForm()) {
+      Notiflix.Notify.warning(
+        "Por favor, corrige los errores en el formulario."
+      );
+      return;
+    }
 
-                {/* Columna del Formulario */}
-                <div className="form-wrapper">
-                    <form onSubmit={handleSubmit} noValidate>
-                        <div className="form-group">
-                            <label htmlFor="name">Nombre</label>
-                            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={errors.name ? 'invalid' : ''} required />
-                            {errors.name && <p className="error-message">{errors.name}</p>}
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={errors.email ? 'invalid' : ''} required />
-                            {errors.email && <p className="error-message">{errors.email}</p>}
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="message">Mensaje</label>
-                            <textarea id="message" name="message" rows={5} value={formData.message} onChange={handleChange} className={errors.message ? 'invalid' : ''} required></textarea>
-                            {errors.message && <p className="error-message">{errors.message}</p>}
-                        </div>
-                        
-                        <button type="submit" className="submit-button" disabled={status === 'sending'}>
-                            {status === 'sending' ? <FaSpinner className="spinner" /> : <FiSend />}
-                            <span>{status === 'sending' ? 'Enviando...' : 'Enviar Mensaje'}</span>
-                        </button>
-                    </form>
-                    
-                    {status === 'success' && (
-                        <div className="feedback-message success">
-                            <IoIosCheckmarkCircleOutline />
-                            <span>¡Gracias! Tu mensaje ha sido enviado con éxito.</span>
-                        </div>
-                    )}
-                    {status === 'error' && (
-                        <div className="feedback-message error">
-                           <IoIosWarning />
-                            <span>Hubo un error al enviar el mensaje. Inténtalo de nuevo.</span>
-                        </div>
-                    )}
-                </div>
+    setIsLoading(true);
+    Notiflix.Loading.standard("Enviando...");
+
+    try {
+      await axios.post(
+        "https://backend-portfolio-sand-theta.vercel.app/envio",
+        formData
+      );
+
+      Notiflix.Loading.remove();
+      Notiflix.Notify.success("¡Mensaje enviado correctamente!");
+      setFeedback({
+        type: "success",
+        message: "Gracias por contactarme. Te responderé a la brevedad.",
+      });
+
+      // Limpiar formulario
+      setFormData({ email: "", asunto: "", mensaje: "" });
+      setErrors({});
+    } catch (error) {
+      Notiflix.Loading.remove();
+      Notiflix.Notify.failure("Hubo un error al enviar el mensaje.");
+      setFeedback({
+        type: "error",
+        message:
+          "No se pudo enviar el mensaje. Por favor, intenta de nuevo más tarde o contáctame por otro medio.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <section className="contact-section">
+      <div className="contact-container">
+        {/* Columna de Información */}
+        <div className="contact-info">
+          <h2 className="contact-title">Contactame</h2>
+          <p className="contact-description">
+            Si te interesa mi trabajo, no dudes en contactarme. Estoy dispuesto
+            a trabajar en proyectos que me desafíen y me permitan crecer como
+            profesional.
+          </p>
+          <div className="contact-links">
+            <a
+              href="mailto:lemoreno2002@gmail.com"
+              className="contact-link-item"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaEnvelope /> <span>lemoreno2002@gmail.com</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/lautaro-moreno/"
+              className="contact-link-item"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin /> <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/LautaroMoreno2002"
+              className="contact-link-item"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub /> <span>Github</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Columna del Formulario */}
+        <div className="form-wrapper">
+          <form onSubmit={handleSubmit} noValidate>
+            <div className="form-group">
+              <label htmlFor="email">Tu Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="ejemplo@correo.com"
+                value={formData.email}
+                onChange={handleChange}
+                className={errors.email ? "invalid" : ""}
+                required
+              />
+              {errors.email && <p className="error-message">{errors.email}</p>}
             </div>
-        </section>
-    );
+
+            <div className="form-group">
+              <label htmlFor="asunto">Asunto</label>
+              <input
+                type="text"
+                id="asunto"
+                name="asunto"
+                placeholder="Propuesta de proyecto"
+                value={formData.asunto}
+                onChange={handleChange}
+                className={errors.asunto ? "invalid" : ""}
+                required
+              />
+              {errors.asunto && (
+                <p className="error-message">{errors.asunto}</p>
+              )}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="mensaje">Mensaje</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                placeholder="Me interesa tu trabajo, quiero hacer un proyecto con vos porque..."
+                rows={5}
+                value={formData.mensaje}
+                onChange={handleChange}
+                className={errors.mensaje ? "invalid" : ""}
+                required
+              />
+              {errors.mensaje && (
+                <p className="error-message">{errors.mensaje}</p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="submit-button"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <>
+                  <FaSpinner className="spinner" />
+                  <span>Enviando...</span>
+                </>
+              ) : (
+                <span>Enviar Mensaje</span>
+              )}
+            </button>
+          </form>
+
+          {feedback.message && (
+            <div className={`feedback-message ${feedback.type}`}>
+              {feedback.message}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
 };

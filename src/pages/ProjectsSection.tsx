@@ -35,7 +35,11 @@ const projects: Project[] = [
     title: "TP - Codo a Codo 2024",
     description:
       "Proyecto final del curso Codo A Codo 2024. Emula una página de una farmacia con productos y acceso a una API hecha en Java.",
-    imageUrls: ["https://i.ibb.co/vjvX5bs/farmacia-cac-2024.png"],
+    imageUrls: ["https://i.ibb.co/vjvX5bs/farmacia-cac-2024.png", 
+      "https://i.ibb.co/hvWmqRh/farmacia-CAC-contactenos.png",
+      "https://i.ibb.co/zVz86vSR/farmacia-CAC-footer.png",
+      "https://i.ibb.co/KxrZ4Ds5/farmacia-CAC-login.png" 
+    ],
     tags: ["HTML5", "CSS3", "JavaScript", "Java"],
     liveUrl: "https://eugesp2.github.io/tpfarmacia/index.html",
     codeUrl: "https://github.com/EUGESP2/tpfarmacia",

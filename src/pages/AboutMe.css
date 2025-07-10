@@ -35,6 +35,18 @@
     box-shadow: 0 0 25px -5px var(--accent-primary-transparent, rgba(88, 166, 255, 0.3));
   }
 }
+/* Nueva animación para la imagen con filter: drop-shadow */
+@keyframes glowShadow {
+  0% {
+    filter: drop-shadow(0 0 8px var(--accent-primary));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px var(--accent-primary));
+  }
+  100% {
+    filter: drop-shadow(0 0 8px var(--accent-primary));
+  }
+}
 
 /* --- Contenedor de la Sección --- */
 .about-section {
@@ -109,6 +121,7 @@
 }
 
 /* --- Columna de Imagen --- */
+
 .about-image-wrapper {
   display: flex;
   justify-content: center;
@@ -121,8 +134,8 @@
   padding: 1rem;
   background: var(--card-bg);
   border-radius: 16px;
-  animation: subtleGlow 4s ease-in-out infinite;
   border: 1px solid var(--border-color);
+  /* Asegúrate de que no haya otra animación de 'glow' aquí */
 }
 
 .about-image {
@@ -132,6 +145,8 @@
   border-radius: 12px;
   object-fit: cover;
   aspect-ratio: 3/4;
+  /* Aplicamos la nueva animación directamente a la imagen */
+  animation: glowShadow 2s ease-in-out infinite;
 }
 
 /* --- Responsividad --- */

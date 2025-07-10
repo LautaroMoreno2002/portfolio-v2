@@ -13,7 +13,7 @@ export const AboutMe: React.FC = () => {
             <div className="about-container">
                 {/* Columna de la Imagen */}
                 <div className="about-image-wrapper">
-                    <div className="image-card">
+                    {/* <div className="image-card"> */}
                         <img 
                             src={profileImageUrl} 
                             alt="Foto de perfil de Lautaro Moreno" 
@@ -24,7 +24,7 @@ export const AboutMe: React.FC = () => {
                                 target.src='https://placehold.co/600x800/1f2937/a78bfa?text=Lautaro';
                             }}
                         />
-                    </div>
+                    {/* </div> */}
                 </div>
 
                 {/* Columna del Texto */}

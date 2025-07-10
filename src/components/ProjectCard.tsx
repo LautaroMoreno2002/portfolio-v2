@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 import { Github, ArrowUpRight } from "lucide-react";
 import "./ProjectCard.css";
@@ -11,7 +11,7 @@ interface ProjectCardProps {
   onImageClick: (project: Project) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, onImageClick }) => {
+const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, onImageClick }) => {
   // Desestructuramos el objeto project para un uso más fácil
   const { title, description, imageUrls, tags, liveUrl, codeUrl } = project;
 
@@ -86,6 +86,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onImageClick }) => {
       )}
     </motion.div>
   );
-};
+});
 
 export default ProjectCard;

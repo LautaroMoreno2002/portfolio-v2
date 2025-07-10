@@ -38,6 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onImageClick }) => {
           alt={`Imagen del proyecto ${title}`}
           className="card-image"
           onError={handleImageError}
+          loading="lazy"
         />
         {/* Opcional: Un overlay para mejorar la UX y mostrar que es clickable */}
         <div className="card-image-overlay">

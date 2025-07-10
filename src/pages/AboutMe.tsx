@@ -6,7 +6,7 @@ import { FiDownload } from 'react-icons/fi';
 import cvFile from '../assets/Lautaro_Moreno_CV.pdf';
 
 export const AboutMe: React.FC = () => {
-    const profileImageUrl = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+    const profileImageUrl = './Foto.png';
     
     return (
         <section className="about-section">
@@ -15,7 +15,7 @@ export const AboutMe: React.FC = () => {
                 <div className="about-image-wrapper">
                     <div className="image-card">
                         <img 
-                            // src={profileImageUrl} 
+                            src={profileImageUrl} 
                             alt="Foto de perfil de Lautaro Moreno" 
                             className="about-image"
                             onError={(e) => {

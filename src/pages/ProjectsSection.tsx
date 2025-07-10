@@ -18,21 +18,49 @@ export interface Project {
 // Tipamos el array de proyectos
 const projects: Project[] = [
   {
+    id: 0,
+    title: "SHAIN FLOW - MIRAI HR SOLUTIONS",
+    description:
+      "Mirai Solutions es una plataforma integral diseñada para optimizar la gestión del talento humano en organizaciones modernas. El sistema permite registrar empleados, controlar asistencias mediante reconocimiento facial, y gestionar nómina de forma automatizada y segura. Con una interfaz intuitiva y funcionalidades modulares, Mirai Solutions facilita la toma de decisiones estratégicas en Recursos Humanos, mejorando la eficiencia operativa y promoviendo un entorno laboral más inteligente y conectado.",
+    imageUrls: [
+      "https://i.ibb.co/HfRQVGdn/shainflow-login.png",
+      "https://i.ibb.co/kjp9xqK/shainflow-register.png",
+      "https://i.ibb.co/k2G2w6wh/datos-laborales.png",
+      "https://i.ibb.co/4Rx2t6gM/datos-laborales2.png",
+      "https://i.ibb.co/8DJ3TZ5r/shainflow-admin-asistencia.png",
+      "https://i.ibb.co/Q3nWRKNR/shainflow-admin-empleados.png",
+      "https://i.ibb.co/7J4mVjJP/shainflow-reco.png",
+    ],
+    tags: [
+      "Python",
+      "FastAPI",
+      "WebSocket",
+      "API Rest",
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "React",
+      "AWS",
+    ],
+    liveUrl: "https://shain-flow.vercel.app/",
+    codeUrl: "https://github.com/LautaroMoreno2002/shain-flow",
+  },
+  {
     id: 1,
     title: "TPI - Proyecto Profesional I",
     description:
       "Proyecto inicial de la materia Proyecto Profesional I. Sistema de predicción de preferencias para empleados con Machine Learning.",
     imageUrls: [
       "https://i.ibb.co/gbKBXww5/Captura-de-pantalla-2025-04-24-205828.png",
-      "https://i.ibb.co/cPG4brx/prediccion-correo.png" ,
-"https://i.ibb.co/tTnVpFSw/prediccion-datos-entrenamiento.png",
-"https://i.ibb.co/B26B4YS1/prediccion-home.png",
-"https://i.ibb.co/ZzkBBZ8v/prediccion-multiple.png",
-"https://i.ibb.co/cKwvmhFK/prediccion-prediccion.png",
-"https://i.ibb.co/bj9LL6xZ/prediccion-push.png",
-"https://i.ibb.co/x8K952Yq/prediccion-slack.png" ,
+      "https://i.ibb.co/cPG4brx/prediccion-correo.png",
+      "https://i.ibb.co/tTnVpFSw/prediccion-datos-entrenamiento.png",
+      "https://i.ibb.co/B26B4YS1/prediccion-home.png",
+      "https://i.ibb.co/ZzkBBZ8v/prediccion-multiple.png",
+      "https://i.ibb.co/cKwvmhFK/prediccion-prediccion.png",
+      "https://i.ibb.co/bj9LL6xZ/prediccion-push.png",
+      "https://i.ibb.co/x8K952Yq/prediccion-slack.png",
     ],
-    tags: ["Django", "Python", "JavaScript", "MHTML5", "CSS3"],
+    tags: ["Django", "Python", "JavaScript", "HTML5", "CSS3"],
     liveUrl: "",
     codeUrl: "https://github.com/LautaroMoreno2002/TPI-G6-LCS",
   },
@@ -41,10 +69,11 @@ const projects: Project[] = [
     title: "TP - Codo a Codo 2024",
     description:
       "Proyecto final del curso Codo A Codo 2024. Emula una página de una farmacia con productos y acceso a una API hecha en Java.",
-    imageUrls: ["https://i.ibb.co/vjvX5bs/farmacia-cac-2024.png", 
+    imageUrls: [
+      "https://i.ibb.co/vjvX5bs/farmacia-cac-2024.png",
       "https://i.ibb.co/hvWmqRh/farmacia-CAC-contactenos.png",
       "https://i.ibb.co/zVz86vSR/farmacia-CAC-footer.png",
-      "https://i.ibb.co/KxrZ4Ds5/farmacia-CAC-login.png" 
+      "https://i.ibb.co/KxrZ4Ds5/farmacia-CAC-login.png",
     ],
     tags: ["HTML5", "CSS3", "JavaScript", "Java"],
     liveUrl: "https://eugesp2.github.io/tpfarmacia/index.html",
@@ -55,7 +84,12 @@ const projects: Project[] = [
     title: "Galería interactiva SIDCO",
     description:
       "Componente interactivo para una obra de construcción hecha por la empresa Sidco. Se hizo con Javascript y fue insertado en Wordpress.",
-    imageUrls: ["https://i.ibb.co/tcQwTJ2/componente-interactivo.png"],
+    imageUrls: [
+      "https://i.ibb.co/tcQwTJ2/componente-interactivo.png",
+      "https://i.ibb.co/pj0DRB4g/Captura-de-pantalla-2025-07-10-183242.png",
+      "https://i.ibb.co/LzLyzGWp/Captura-de-pantalla-2025-07-10-183317.png",
+      "https://i.ibb.co/hJswwYgB/Captura-de-pantalla-2025-07-10-183334.png",
+    ],
     tags: ["HTML5", "CSS3", "JavaScript", "WordPress"],
     liveUrl: "https://www.constructorasidco.com/portfolio/plaza-guiraldes/",
     codeUrl: "",
@@ -65,7 +99,12 @@ const projects: Project[] = [
     title: "Lights Out Web",
     description:
       "El juego LightsOut, tanto en modo clásico como en el modo variante, desarrollado con el framework Angular.",
-    imageUrls: ["https://i.ibb.co/0BjTHkN/lights-out.png"],
+    imageUrls: [
+      "https://i.ibb.co/0BjTHkN/lights-out.png",
+      "https://i.ibb.co/pBjWkk6R/lights-Out-5x5.png",
+      "https://i.ibb.co/Xr154m82/ligths-Out-4x4.png",
+      "https://i.ibb.co/bjk2Zp7p/ligths-Out-introduccion.png",
+    ],
     tags: ["HTML5", "CSS3", "Typescript", "Angular"],
     liveUrl: "https://lights-out-web-angular18.netlify.app/",
     codeUrl: "https://github.com/LautaroMoreno2002/lightsOut-web",
@@ -86,7 +125,13 @@ const projects: Project[] = [
     title: "Clustering Humano - Programación III",
     description:
       "Aplicación hecha en Java, con la librería WindowBuilder, que permite separar un grupo de personas según las similitudes que tengan en sus gustos. Se visualizarán utilizando un mapa, propio de la librería JMapViewer.",
-    imageUrls: ["https://i.ibb.co/2jrQNdD/clustering-Humano.png"],
+    imageUrls: [
+      "https://i.ibb.co/2jrQNdD/clustering-Humano.png",
+      "https://i.ibb.co/xSSs7t20/clustering-p2.png",
+      "https://i.ibb.co/RTTHnyHc/clustering-p3.png",
+      "https://i.ibb.co/RkngRkdN/clustering-agrupamiento.png",
+      "https://i.ibb.co/20ST49qz/clustering-p1.png",
+    ],
     tags: ["Java", "WindowBuilder", "JMapViewer"],
     liveUrl: "",
     codeUrl:

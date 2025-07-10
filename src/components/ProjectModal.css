@@ -1,11 +1,12 @@
-/* Fondo oscuro del modal */
+/* Fondo oscuro del modal usando la variable de fondo con transparencia */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  /* Usamos el color de fondo principal con opacidad para el overlay */
+  background-color: color-mix(in srgb, var(--bg-color) 80%, transparent);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,8 +16,9 @@
 
 /* Contenido del modal */
 .modal-content {
-  background-color: #1e1e2f; /* Un color oscuro de fondo */
-  color: #e0e0e0;
+  background-color: var(--card-bg); /* Fondo de la tarjeta */
+  color: var(--text-primary); /* Color de texto principal */
+  border: 1px solid var(--border-color); /* Color del borde */
   padding: 2.5rem;
   border-radius: 12px;
   max-width: 900px;
@@ -26,7 +28,6 @@
   gap: 2rem;
   position: relative;
   overflow-y: auto;
-  border: 1px solid #4f4f6a;
 }
 
 /* Botón para cerrar */
@@ -36,10 +37,15 @@
   right: 15px;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--text-secondary); /* Color de texto secundario */
   font-size: 2rem;
   cursor: pointer;
   line-height: 1;
+  transition: color 0.3s;
+}
+
+.modal-close-button:hover {
+  color: var(--text-primary); /* Color principal al pasar el mouse */
 }
 
 /* Media query para pantallas pequeñas */
@@ -60,10 +66,11 @@
 
 .image-section img {
   width: 100%;
-  height: 100%;
+  max-width: 500px;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid #4f4f6a;
+  border: 1px solid var(--border-color); /* Color del borde */
 }
 
 /* Controles de la galería */
@@ -76,8 +83,8 @@
 }
 
 .gallery-controls button {
-  background-color: #3a3a5a;
-  color: #fff;
+  background-color: var(--border-color); /* Fondo sutil */
+  color: var(--text-primary);
   border: none;
   padding: 8px 16px;
   border-radius: 5px;
@@ -86,7 +93,7 @@
 }
 
 .gallery-controls button:hover {
-  background-color: #4f4f7a;
+  background-color: var(--accent-primary); /* Color de acento al pasar el mouse */
 }
 
 /* Sección de la descripción */
@@ -98,11 +105,12 @@
 
 .description-section h3 {
   margin-top: 0;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 1.8rem;
 }
 
 .description-section p {
+  color: var(--text-secondary); /* Texto secundario para la descripción */
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -110,8 +118,8 @@
 .description-section h4 {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #a0a0c0;
-  border-bottom: 1px solid #4f4f6a;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.5rem;
 }
 
@@ -123,32 +131,34 @@
 }
 
 .tag {
-  background-color: #3a3a5a;
-  color: #e0e0e0;
+  background-color: color-mix(in srgb, var(--accent-secondary) 25%, transparent); /* Fondo con acento secundario (verde) y transparencia */
+  color: var(--accent-secondary); /* Texto con el mismo color de acento */
+  border: 1px solid var(--accent-secondary);
   padding: 5px 12px;
   border-radius: 15px;
   font-size: 0.8rem;
+  font-weight: 500;
 }
 
 /* Enlaces del proyecto */
 .project-links {
-    margin-top: auto; /* Empuja los enlaces al final */
-    padding-top: 1rem;
-    display: flex;
-    gap: 1rem;
+  margin-top: auto; /* Empuja los enlaces al final */
+  padding-top: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .project-links a {
-    background-color: #ff5722;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    transition: background-color 0.3s;
+  background-color: var(--accent-primary); /* Color de acento primario */
+  color: var(--bg-color); /* Contraste alto con el color de fondo principal */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: filter 0.2s;
 }
 
 .project-links a:hover {
-    background-color: #e64a19;
+  filter: brightness(1.2); /* Aclara el botón al pasar el mouse */
 }

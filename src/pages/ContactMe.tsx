@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import * as Notiflix from "notiflix";
 import { FaLinkedin, FaGithub, FaEnvelope, FaSpinner } from "react-icons/fa";

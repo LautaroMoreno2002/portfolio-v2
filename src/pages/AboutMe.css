@@ -148,15 +148,6 @@
   animation: glowShadow 2s ease-in-out infinite;
 }
 
-Claro, he modificado todos tus archivos CSS para mejorar la adaptabilidad (responsividad). Los cambios se centran en ajustar los tamaños de fuentes, imágenes, espaciados y grillas para que tu portafolio se vea excelente en cualquier dispositivo, desde monitores grandes hasta celulares.
-
-Aquí están las versiones actualizadas de cada archivo. ✨
-
-Home.css
-Se ajustaron los tamaños del título y subtítulo para pantallas más pequeñas y se añadió un punto de quiebre adicional para móviles muy pequeños, mejorando la legibilidad.
-
-CSS
-
 .homepage {
   display: flex;
   align-items: center;
@@ -255,11 +246,6 @@ CSS
         padding: 0.6rem 1.2rem; /* Botón más pequeño */
     }
 }
-AboutMe.css
-La imagen y los textos ahora se encogen de manera fluida en pantallas medianas y pequeñas. El layout cambia a una sola columna en móviles para una mejor experiencia de usuario.
-
-CSS
-
 /* --- Animaciones (sin cambios) --- */
 @keyframes slideInFromLeft {
   from { opacity: 0; transform: translateX(-30px); }

@@ -1,4 +1,3 @@
-import React from "react";
 import "./AboutMe.css";
 import { FiDownload } from "react-icons/fi";
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Project } from "../pages/ProjectsSection"; // Ajusta la ruta si es necesario
  // Ajusta la ruta si es necesario

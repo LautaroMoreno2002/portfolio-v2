@@ -1,4 +1,4 @@
-import React, { useState, useMemo, type CSSProperties } from "react";
+import { useState, useMemo, type CSSProperties } from "react";
 // Cambiamos las importaciones de URL a los paquetes locales.
 // Esto asume que has instalado 'react-icons' en tu proyecto.
 import {
@@ -8,7 +8,6 @@ import {
   FaReact,
   FaNodeJs,
   FaGitAlt,
-  FaSass,
   FaBootstrap,
   FaFigma,
   FaPython,
@@ -21,19 +20,16 @@ import {
 } from "react-icons/fa";
 import {
   SiTypescript,
-  SiNextdotjs,
-  SiTailwindcss,
   SiPostgresql,
   SiMongodb,
   SiExpress,
   SiRedux,
-  SiJest,
   SiMysql,
   SiSqlite,
 } from "react-icons/si";
 
 import "./Skills.css";
-import { FaGolang, FaJ } from "react-icons/fa6";
+import { FaGolang } from "react-icons/fa6";
 
 // --- TIPOS DE DATOS (TypeScript) ---
 // Definimos las categorías para una mejor organización y filtrado.

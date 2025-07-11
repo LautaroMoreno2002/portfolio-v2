@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { Menu, X } from 'lucide-react'; // Iconos para el menú móvil
 import "./Header.css";

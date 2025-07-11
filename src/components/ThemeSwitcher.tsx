@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FiSun, FiMoon, FiMonitor, FiDroplet } from 'react-icons/fi';
 
 // --- Definición de las Paletas de Colores ---

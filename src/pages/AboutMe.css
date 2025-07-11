@@ -50,7 +50,7 @@
 
 /* --- Contenedor de la Sección --- */
 .about-section {
-  width: 100vw;
+  width: 100%;
   max-width: 90rem;
   display: grid;
   background-color: var(--bg-color);

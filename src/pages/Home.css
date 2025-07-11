@@ -54,7 +54,7 @@
 
 /* --- Section Container (Sin cambios) --- */
 .home-section {
-  width: 100vw;
+  width: 100%;
   max-width: 90rem;
   min-height: calc(100vh - 145px);
   height: auto;

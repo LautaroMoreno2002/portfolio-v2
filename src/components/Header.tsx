@@ -26,7 +26,7 @@ export default function Header() {
           <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Inicio /&gt;</NavLink>
           <NavLink to="/proyectos" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Proyectos /&gt;</NavLink>
           <NavLink to="/conocimientos" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Skills /&gt;</NavLink>
-          <NavLink to="/sobre-mi" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Sobre mí /&gt;</NavLink>
+          {/* <NavLink to="/sobre-mi" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Sobre mí /&gt;</NavLink> */}
           <NavLink to="/contacto" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Contacto /&gt;</NavLink>
         </nav>
 
@@ -42,7 +42,7 @@ export default function Header() {
           <NavLink to="/" className="nav-link-mobile" onClick={toggleMenu}>&lt;Inicio /&gt;</NavLink>
           <NavLink to="/proyectos" className="nav-link-mobile" onClick={toggleMenu}>&lt;Proyectos /&gt;</NavLink>
           <NavLink to="/conocimientos" className="nav-link-mobile" onClick={toggleMenu}>&lt;Skills /&gt;</NavLink>
-          <NavLink to="/sobre-mi" className="nav-link-mobile" onClick={toggleMenu}>&lt;Sobre mí /&gt;</NavLink>
+          {/* <NavLink to="/sobre-mi" className="nav-link-mobile" onClick={toggleMenu}>&lt;Sobre mí /&gt;</NavLink> */}
           <NavLink to="/contacto" className="nav-link-mobile" onClick={toggleMenu}>&lt;Contacto /&gt;</NavLink>
         </nav>
       )}

@@ -4,7 +4,7 @@ import Header from './components/Header';
 import ProjectsSection from './pages/ProjectsSection';
 import Home from './pages/Home';
 import { Skills } from './pages/Skills';
-import { AboutMe } from './pages/AboutMe';
+// import { AboutMe } from './pages/AboutMe';
 import { ContactMe } from './pages/ContactMe';
 import ThemeSwitcher from './components/ThemeSwitcher';
 
@@ -22,7 +22,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/proyectos" element={<ProjectsSection />} />
           <Route path="/conocimientos" element={<Skills />} />
-          <Route path='/sobre-mi' element={<AboutMe />} />
+          {/* <Route path='/sobre-mi' element={<AboutMe />} /> */}
           <Route path='/contacto' element={<ContactMe />} />
         </Routes>
       </main>

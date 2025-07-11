@@ -1,127 +1,198 @@
-.homepage {
+/* --- Keyframe Animations (Sin cambios) --- */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glowShadow {
+  0% {
+    filter: drop-shadow(0 0 8px var(--accent-primary));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px var(--accent-primary));
+  }
+  100% {
+    filter: drop-shadow(0 0 8px var(--accent-primary));
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+/* --- Section Container (Sin cambios) --- */
+.home-section {
+  width: 100vw;
+  max-width: 90rem;
+  min-height: calc(100vh - 145px);
+  height: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  /* La altura se mantiene, pero el fondo ahora es una variable para que cambie con el tema */
-  background-color: var(--bg-color); 
-  height: calc(100vh - 145px); /* Ajusta la altura para descontar el navbar */
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
   transition: background-color 0.3s ease;
 }
 
-.homepage-content {
-  width: 100vw;
-  max-width: 90rem;
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
 }
 
-.homepage-title {
-  padding: 0 1em;
+/* --- Text Column (Sin cambios) --- */
+.home-text-content {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.home-title {
   font-size: 3.5rem;
   font-weight: 700;
-  /* El color del texto principal ahora es una variable */
-  color: var(--text-primary);
-  line-height: 1.2;
-  
-  background: -webkit-linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+  margin-bottom: 1.5rem;
+  background: -webkit-linear-gradient(
+    45deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: -1.5px;
 }
 
-.homepage-subtitle {
-  font-size: 1.25rem;
-  /* El color del texto secundario ahora es una variable */
-  color: var(--text-secondary);
-  margin-top: 1rem;
+.home-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
   margin-bottom: 2.5rem;
-}
-
-.homepage-cta-button {
-  display: inline-block;
-  /* El color de fondo y del texto del botón usan variables para adaptarse al tema */
-  background-color: var(--accent-primary);
-  color: var(--bg-color); /* Usamos el color de fondo para el texto para asegurar contraste */
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 700;
-  text-decoration: none; /* Añadido para asegurar que no haya subrayado si se usa como <a> */
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, filter 0.2s ease-in-out;
-}
-
-.homepage-cta-button:hover {
-  /* En lugar de un color fijo, aclaramos ligeramente el color de acento actual */
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-}
-
-/* Media queries para ajustar el tamaño de la fuente en pantallas más pequeñas */
-@media (max-width: 768px) {
-    .homepage-title {
-        font-size: 2.5rem;
-    }
-    .homepage-subtitle {
-        font-size: 1.1rem;
-    }
-    /* ✨ AQUÍ LA MAGIA ✨ */
-  /* Aplicamos estos estilos al título cuando tiene el efecto */
-  .homepage-title.typing-effect {
-      /* 1. Permite que el texto se divida en varias líneas */
-      white-space: normal;
-
-      /* 2. Desactiva la animación de escritura y el parpadeo */
-      /* animation: none; */
-
-      /* 3. Elimina el cursor, que ya no es necesario */
-      /* border-right: none; */
-      
-      /* 4. Resetea el ancho para que ocupe el espacio disponible */
-      width: auto;
-  }
+  color: var(--text-secondary);
 }
 
 .typing-effect {
- overflow: hidden; /* Asegura que el texto no se desborde antes de la animación */
- white-space: nowrap; /* Evita que el texto pase a la siguiente línea */
- border-right: .15em solid orange; /* Simula el cursor */
- animation: 
-   typing 3.5s steps(30, end) infinite alternate,
-   blink-caret .75s step-end infinite alternate;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid orange;
+  animation: typing 3.5s steps(30, end),
+    blink-caret 0.75s step-end infinite alternate;
 }
 
-
-@keyframes typing {
- from { width: 0 }
- to { width: 100% }
+/* --- Call to Action Button (Sin cambios) --- */
+.home-cta-button {
+  display: inline-block;
+  background-color: var(--accent-primary);
+  color: var(--bg-color);
+  padding: 0.9rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 1rem;
 }
 
-
-@keyframes blink-caret {
- from, to { border-color: transparent }
- 50% { border-color: orange; }
+.home-cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -5px
+    var(--accent-primary-transparent, rgba(88, 166, 255, 0.3));
 }
 
-/* --- RESPONSIVIDAD --- */
-@media (max-width: 768px) {
-    .homepage-title {
-        font-size: 2.5rem; /* Título más pequeño */
-        line-height: 1.3;
-    }
-    .homepage-subtitle {
-        font-size: 1.1rem; /* Subtítulo más pequeño */
-    }
-    .homepage-title.typing-effect {
-      white-space: normal;
-      width: auto;
+/* --- Image Column --- */
+.home-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+.home-image {
+  width: 100%;
+  max-width: 350px; /* Base max-width */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  animation: glowShadow 2s ease-in-out infinite;
+}
+
+/* --- RESPONSIVIDAD (CON CAMBIOS) --- */
+@media (max-width: 992px) {
+  .home-container {
+    gap: 2.5rem;
+    grid-template-columns: 1fr 1.2fr;
+  }
+  .home-title {
+    font-size: 3rem;
+  }
+  /* YA NO ACHICAMOS LA IMAGEN AQUÍ */
+  .home-image {
+    max-width: 320px;
   }
 }
 
-@media (max-width: 480px) {
-    .homepage-title {
-        font-size: 2rem; /* Aún más pequeño para móviles */
-    }
-    .homepage-subtitle {
-        font-size: 1rem;
-    }
-    .homepage-cta-button {
-        padding: 0.6rem 1.2rem; /* Botón más pequeño */
-    }
+@media (max-width: 890px) {
+  .home-section {
+    padding: 3rem 1.5rem;
+  }
+  .home-container {
+    grid-template-columns: 1fr; /* Single column layout */
+    text-align: center;
+    gap: 2rem;
+  }
+  .home-image-wrapper {
+    order: -1; /* Move image to the top */
+    margin-bottom: 2rem;
+  }
+  /* CAMBIO PRINCIPAL: La imagen ahora es más grande en móviles */
+  .home-image {
+    max-width: 300px; /* Aumentado desde 280px para mejor visibilidad */
+  }
+  .home-title {
+    font-size: 2.5rem;
+  }
+  .home-title.typing-effect {
+    white-space: normal;
+    animation: none;
+    border-right: none;
+    width: auto;
+  }
+  .home-description {
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home-cta-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

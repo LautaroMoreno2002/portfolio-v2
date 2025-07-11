@@ -172,11 +172,28 @@
 }
 
 @media (max-width: 768px) {
+  .skills-section {
+      padding: 3rem 1rem;
+  }
   .skills-title {
     font-size: 2.5rem;
   }
+  .skills-subtitle {
+      font-size: 1rem;
+  }
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1.5rem;
   }
+}@media (max-width: 480px) {
+    .skill-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+    .skill-icon {
+        font-size: 2rem;
+    }
+    .skill-name {
+        font-size: 0.8rem;
+    }
 }

@@ -50,18 +50,25 @@
   gap: 2.5rem;
 }
 
-/* Media Query para pantallas más pequeñas */
+/* --- RESPONSIVIDAD --- */
 @media (max-width: 768px) {
   .projects-section {
-    padding: 3rem 0rem;
+    padding: 3rem 1rem; /* Menos padding */
   }
-
   .projects-title {
     font-size: 2.5rem;
   }
-
+  .projects-subtitle {
+      font-size: 1rem;
+  }
   .projects-grid {
-    grid-template-columns: 1fr;
+    /* La grilla ya se ajusta a una columna por el minmax */
     gap: 2rem;
   }
+}
+@media (max-width: 480px) {
+    .projects-grid {
+        /* Para móviles muy pequeños, forzamos una columna */
+        grid-template-columns: 1fr;
+    }
 }

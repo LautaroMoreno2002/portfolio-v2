@@ -159,3 +159,16 @@
 .project-links a:hover {
   filter: brightness(1.2); /* Aclara el botón al pasar el mouse */
 }
+@media (max-width: 850px) {
+  .modal-content {
+    flex-direction: column;
+    padding: 2rem 1.5rem 1.5rem;
+  }
+  .description-section h3 {
+      font-size: 1.5rem; /* Título más pequeño */
+      margin-top: 1rem;
+  }
+  .description-section p {
+      font-size: 0.9rem; /* Descripción más pequeña */
+  }
+}

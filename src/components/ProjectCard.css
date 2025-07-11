@@ -1,5 +1,4 @@
 .project-card {
-  /* Usando variables para el fondo y borde */
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -9,107 +8,81 @@
   height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  border-color: var(--accent-primary); /* Resalta el borde al hacer hover */
+  border-color: var(--accent-primary);
 }
-
-/* Contenedor para forzar la relación de aspecto */
 .card-image-wrapper {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  /* El fondo del wrapper usa el color de fondo principal del tema */
   background-color: var(--bg-color);
 }
-
-/* Estilos de la imagen para que llene el contenedor */
 .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
-
 .project-card:hover .card-image {
-  transform: scale(1.05); /* Efecto de zoom sutil */
+  transform: scale(1.05);
 }
-
 .card-content {
-  padding: 1.5rem;
+  padding: 1.25rem; /* Padding reducido */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
-
 .card-title {
-  font-size: 1.25rem;
+  font-size: 1.15rem; /* Título ligeramente más pequeño */
   font-weight: 700;
-  /* El título usa el color de texto primario del tema */
   color: var(--text-primary);
   margin: 0 0 0.75rem 0;
 }
-
 .card-description {
-  /* La descripción usa el color de texto secundario */
   color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.6;
-  /* flex-grow: 1; */
-  /* --- INICIO: Propiedades para truncar el texto --- */
-
-  /* Muestra el contenido como una caja flexible con orientación vertical. Requerido para line-clamp. */
   display: -webkit-box;
   -webkit-box-orient: vertical;
-
-  /* Limita el contenido a un máximo de 2 líneas. */
-  -webkit-line-clamp: 2;
-
-  /* Oculta el texto que desborda el contenedor. */
+  -webkit-line-clamp: 3; /* Permitir hasta 3 líneas */
   overflow: hidden;
-
-  /* Añade los puntos suspensivos (...) al final del texto truncado. */
   text-overflow: ellipsis;
-
-  /* --- FIN: Propiedades para truncar el texto --- */
+  flex-grow: 1; /* Permite que la descripción ocupe el espacio */
+  margin-bottom: 1rem; /* Asegura espacio antes de los tags */
 }
-
 .card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: auto; /* Empuja los tags hacia abajo si la descripción es corta */
 }
-
 .card-tag {
-  /* El tag usa el color de acento primario para el texto y un fondo semitransparente */
   background-color: var(--accent-primary-transparent, rgba(88, 166, 255, 0.1));
   color: var(--accent-primary);
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* Tags más pequeños */
   font-weight: 500;
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0.6rem;
   border-radius: 9999px;
 }
-
 .card-footer {
-  padding: 1rem 1.5rem 1.5rem;
+  padding: 1rem 1.25rem;
   border-top: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  margin-top: auto; /* Empuja el footer hacia abajo */
 }
-
 .card-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   color: var(--text-secondary);
   text-decoration: none;
+  font-size: 0.9rem; /* Texto de links más pequeño */
   transition: color 0.2s ease-in-out;
 }
-
 .card-link:hover {
   color: var(--accent-primary);
 }

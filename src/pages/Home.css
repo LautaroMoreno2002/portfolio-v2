@@ -15,6 +15,7 @@
 }
 
 .homepage-title {
+  padding: 0 1em;
   font-size: 3.5rem;
   font-weight: 700;
   /* El color del texto principal ahora es una variable */
@@ -96,4 +97,31 @@
 @keyframes blink-caret {
  from, to { border-color: transparent }
  50% { border-color: orange; }
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 768px) {
+    .homepage-title {
+        font-size: 2.5rem; /* Título más pequeño */
+        line-height: 1.3;
+    }
+    .homepage-subtitle {
+        font-size: 1.1rem; /* Subtítulo más pequeño */
+    }
+    .homepage-title.typing-effect {
+      white-space: normal;
+      width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+    .homepage-title {
+        font-size: 2rem; /* Aún más pequeño para móviles */
+    }
+    .homepage-subtitle {
+        font-size: 1rem;
+    }
+    .homepage-cta-button {
+        padding: 0.6rem 1.2rem; /* Botón más pequeño */
+    }
 }

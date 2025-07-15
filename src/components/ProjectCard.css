@@ -46,10 +46,9 @@
   line-height: 1.6;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* Permitir hasta 3 líneas */
+  -webkit-line-clamp: 2; /* Permitir hasta 3 líneas */
   overflow: hidden;
   text-overflow: ellipsis;
-  flex-grow: 1; /* Permite que la descripción ocupe el espacio */
   margin-bottom: 1rem; /* Asegura espacio antes de los tags */
 }
 .card-tags {

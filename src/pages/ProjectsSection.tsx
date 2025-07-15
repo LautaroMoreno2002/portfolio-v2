@@ -48,6 +48,21 @@ const projects: Project[] = [
   },
   {
     id: 1,
+    title: "Galería interactiva SIDCO",
+    description:
+      "Componente interactivo para una obra de construcción hecha por la empresa Sidco. Se hizo con Javascript y fue insertado en Wordpress.",
+    imageUrls: [
+      "https://i.ibb.co/tcQwTJ2/componente-interactivo.png",
+      "https://i.ibb.co/pj0DRB4g/Captura-de-pantalla-2025-07-10-183242.png",
+      "https://i.ibb.co/LzLyzGWp/Captura-de-pantalla-2025-07-10-183317.png",
+      "https://i.ibb.co/hJswwYgB/Captura-de-pantalla-2025-07-10-183334.png",
+    ],
+    tags: ["HTML5", "CSS3", "JavaScript", "WordPress"],
+    liveUrl: "https://www.constructorasidco.com/portfolio/plaza-guiraldes/",
+    codeUrl: "",
+  },
+  {
+    id: 2,
     title: "TPI - Proyecto Profesional I",
     description:
       "Proyecto inicial de la materia Proyecto Profesional I. Sistema de predicción de preferencias para empleados con Machine Learning.",
@@ -66,7 +81,7 @@ const projects: Project[] = [
     codeUrl: "https://github.com/LautaroMoreno2002/TPI-G6-LCS",
   },
   {
-    id: 2,
+    id: 3,
     title: "TP - Codo a Codo 2024",
     description:
       "Proyecto final del curso Codo A Codo 2024. Emula una página de una farmacia con productos y acceso a una API hecha en Java.",
@@ -79,21 +94,6 @@ const projects: Project[] = [
     tags: ["HTML5", "CSS3", "JavaScript", "Java"],
     liveUrl: "https://eugesp2.github.io/tpfarmacia/index.html",
     codeUrl: "https://github.com/EUGESP2/tpfarmacia",
-  },
-  {
-    id: 3,
-    title: "Galería interactiva SIDCO",
-    description:
-      "Componente interactivo para una obra de construcción hecha por la empresa Sidco. Se hizo con Javascript y fue insertado en Wordpress.",
-    imageUrls: [
-      "https://i.ibb.co/tcQwTJ2/componente-interactivo.png",
-      "https://i.ibb.co/pj0DRB4g/Captura-de-pantalla-2025-07-10-183242.png",
-      "https://i.ibb.co/LzLyzGWp/Captura-de-pantalla-2025-07-10-183317.png",
-      "https://i.ibb.co/hJswwYgB/Captura-de-pantalla-2025-07-10-183334.png",
-    ],
-    tags: ["HTML5", "CSS3", "JavaScript", "WordPress"],
-    liveUrl: "https://www.constructorasidco.com/portfolio/plaza-guiraldes/",
-    codeUrl: "",
   },
   {
     id: 4,

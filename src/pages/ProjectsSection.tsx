@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from '../components/ProjectCard';
 import './ProjectsSection.css';
 import ProjectModal from '../components/ProjectModal';
+
 
 // Definimos la "forma" de un objeto de proyecto con una interfaz
 export interface Project {
@@ -171,20 +172,19 @@ const ProjectsSection: React.FC = () => {
       },
     },
   };
-
-  return (
-    <div className="projects-section">
+    return (
+    <section id="projects" className="projects-section" aria-labelledby="projects-title">
       <div className="projects-container">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }} // 'whileInView' es genial para animar al hacer scroll
+          viewport={{ once: true, amount: 0.5 }} // Configuración para whileInView
           transition={{ duration: 0.5 }}
           className="projects-header"
         >
-          <h2 className="projects-title">Mis Proyectos</h2>
+          <h2 id="projects-title" className="projects-title">Mis Proyectos</h2>
           <p className="projects-subtitle">
-            Aquí hay una selección de algunos de mis trabajos recientes. Cada
-            proyecto fue un nuevo desafío y una oportunidad de aprendizaje.
+            Aquí hay una selección de algunos de mis trabajos recientes.
           </p>
         </motion.div>
 
@@ -192,24 +192,26 @@ const ProjectsSection: React.FC = () => {
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible" // También animamos la grilla al verla
+          viewport={{ once: true, amount: 0.2 }}
         >
           {projects.map((project) => (
-            // 3. Pasamos la función para abrir el modal a cada tarjeta
             <ProjectCard
               key={project.id}
               project={project}
-              onImageClick={handleOpenModal}
+              onImageClick={() => handleOpenModal(project)} // Es un poco más robusto pasar una arrow function
             />
           ))}
         </motion.div>
       </div>
 
-      {/* 4. Renderizamos el modal solo si hay un proyecto seleccionado */}
-      {selectedProject && (
-        <ProjectModal project={selectedProject} onClose={handleCloseModal} />
-      )}
-    </div>
+      {/* ✨ CORRECCIÓN: Envuelve el modal en AnimatePresence */}
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal project={selectedProject} onClose={handleCloseModal} />
+        )}
+      </AnimatePresence>
+    </section>
   );
 };
 

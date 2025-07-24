@@ -6,6 +6,7 @@ import "./Header.css";
 // 1. Importaciones necesarias
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useTheme } from "./useTheme";
+import React from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -120,7 +121,7 @@ export default function Header() {
                   onClick={() => handleMobileThemeChange(themeName)}
                   aria-label={`Activar tema ${themeName}`}
                 >
-                  {themeIcons[themeName]}
+                  {React.createElement(themeIcons[themeName as keyof typeof themeIcons])}
                 </button>
               ))}
             </div>

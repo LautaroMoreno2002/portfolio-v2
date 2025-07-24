@@ -170,3 +170,66 @@
     font-size: 1.5rem; /* Logo más pequeño */
   }
 }
+/* --- NUEVOS ESTILOS PARA LA INTEGRACIÓN --- */
+
+/* Contenedor para alinear la navegación y el switcher en escritorio */
+.header-right-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Espacio entre la nav y el switcher */
+}
+
+/* Ocultamos el switcher de escritorio en la vista móvil */
+@media (max-width: 850px) {
+  .header-right-section {
+    display: none;
+  }
+}
+
+/* Estilos para el selector de tema en el menú móvil */
+.mobile-theme-selector {
+  padding: 1rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.theme-selector-title {
+  font-family: 'Fira Code', monospace;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.theme-options-mobile {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.theme-option-mobile {
+  background-color: var(--bg-color);
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.theme-option-mobile:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.theme-option-mobile.active {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: scale(1.1);
+}

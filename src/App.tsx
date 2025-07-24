@@ -26,7 +26,6 @@ const App: React.FC = () => {
           <Route path='/contacto' element={<ContactMe />} />
         </Routes>
       </main>
-      <ThemeSwitcher />
     </BrowserRouter>
   );
 }

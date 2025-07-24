@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 import "./Home.css"; // We'll create this new CSS file next
+import { FiDownload } from "react-icons/fi";
+
+// 1. Importa tu archivo CV desde la carpeta de assets (o donde lo tengas guardado)
+import cvFile from "../assets/Lautaro_Moreno_CV.pdf";
 
 export default function Home() {
   const profileImageUrl = "./Foto.png"; // You can change this to a different image for the home page
@@ -47,9 +51,15 @@ export default function Home() {
             mi capacidad para el trabajo en equipo y la resolución de desafíos
             bajo presión.
           </p>
-          <Link to="/proyectos" className="home-cta-button">
-            Ver mis proyectos
-          </Link>
+          {/* 2. Modifica la etiqueta <a> para que use el archivo importado y el atributo 'download' */}
+          <a
+            href={cvFile}
+            className="cv-button"
+            download="Lautaro_Moreno_CV.pdf" // Este atributo fuerza la descarga y le da un nombre al archivo
+          >
+            <FiDownload className="button-icon" />
+            <span>Descargar CV</span>
+          </a>
         </div>
       </div>
     </section>

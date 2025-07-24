@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X } from 'lucide-react'; // Iconos para el menú móvil
+import { Menu, X } from "lucide-react";
 import "./Header.css";
+
+// 1. Importaciones necesarias
+import ThemeSwitcher from "./ThemeSwitcher";
+import { useTheme } from "./useTheme";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // 2. Usamos el hook para acceder a la lógica del tema
+  const { activeTheme, handleThemeChange, themes, themeIcons } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Función para manejar el cambio de tema desde el menú móvil
+  const handleMobileThemeChange = (themeName: string) => {
+    handleThemeChange(themeName);
+    // Opcional: cierra el menú al seleccionar un tema
+    setIsMenuOpen(false);
   };
 
   return (
@@ -21,29 +34,97 @@ export default function Header() {
           </div>
         </NavLink>
 
-        {/* Navegación para escritorio */}
-        <nav className="nav-desktop">
-          <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Inicio</NavLink>
-          <NavLink to="/proyectos" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Proyectos</NavLink>
-          <NavLink to="/conocimientos" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Skills</NavLink>
-          {/* <NavLink to="/sobre-mi" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>&lt;Sobre mí /&gt;</NavLink> */}
-          <NavLink to="/contacto" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Contacto</NavLink>
-        </nav>
+        {/* 3. Contenedor para la navegación y el ThemeSwitcher en escritorio */}
+        <div className="header-right-section">
+          <nav className="nav-desktop">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Inicio
+            </NavLink>
+            <NavLink
+              to="/proyectos"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Proyectos
+            </NavLink>
+            <NavLink
+              to="/conocimientos"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Skills
+            </NavLink>
+            <NavLink
+              to="/contacto"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Contacto
+            </NavLink>
+          </nav>
 
-        {/* Botón de menú para móvil */}
+          {/* El componente ThemeSwitcher para escritorio */}
+          <ThemeSwitcher />
+        </div>
+
         <div className="menu-toggle" onClick={toggleMenu}>
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </div>
       </div>
 
-      {/* Menú desplegable para móvil */}
       {isMenuOpen && (
         <nav className="nav-mobile">
-          <NavLink to="/" className="nav-link-mobile" onClick={toggleMenu}>Inicio</NavLink>
-          <NavLink to="/proyectos" className="nav-link-mobile" onClick={toggleMenu}>Proyectos</NavLink>
-          <NavLink to="/conocimientos" className="nav-link-mobile" onClick={toggleMenu}>Skills</NavLink>
-          {/* <NavLink to="/sobre-mi" className="nav-link-mobile" onClick={toggleMenu}>&lt;Sobre mí /&gt;</NavLink> */}
-          <NavLink to="/contacto" className="nav-link-mobile" onClick={toggleMenu}>Contacto</NavLink>
+          <NavLink to="/" className="nav-link-mobile" onClick={toggleMenu}>
+            Inicio
+          </NavLink>
+          <NavLink
+            to="/proyectos"
+            className="nav-link-mobile"
+            onClick={toggleMenu}
+          >
+            Proyectos
+          </NavLink>
+          <NavLink
+            to="/conocimientos"
+            className="nav-link-mobile"
+            onClick={toggleMenu}
+          >
+            Skills
+          </NavLink>
+          <NavLink
+            to="/contacto"
+            className="nav-link-mobile"
+            onClick={toggleMenu}
+          >
+            Contacto
+          </NavLink>
+
+          {/* 4. Opciones de tema integradas en el menú móvil */}
+          <div className="mobile-theme-selector">
+            <span className="theme-selector-title">Temas</span>
+            <div className="theme-options-mobile">
+              {Object.keys(themes).map((themeName) => (
+                <button
+                  key={themeName}
+                  className={`theme-option-mobile ${
+                    activeTheme === themeName ? "active" : ""
+                  }`}
+                  onClick={() => handleMobileThemeChange(themeName)}
+                  aria-label={`Activar tema ${themeName}`}
+                >
+                  {themeIcons[themeName]}
+                </button>
+              ))}
+            </div>
+          </div>
         </nav>
       )}
     </header>

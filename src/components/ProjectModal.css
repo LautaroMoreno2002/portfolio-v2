@@ -199,10 +199,10 @@
   height: 100%;
   /* La imagen cubre el área sin deformarse (puede recortarse si la proporción no coincide) */
   object-fit: contain;
-  /* Borde del mismo tono que el tema seleccionado */
-  border: 4px solid var(--border-color);
+ 
   /* Asegura que el borde se calcule dentro del tamaño total y no añada dimensiones extra */
   box-sizing: border-box;
+  aspect-ratio: 16 / 9; /* Mantiene una proporción de aspecto adecuada */
 }
 
 /* Botón para cerrar el visor ('X') */

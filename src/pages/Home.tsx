@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import "./Home.css"; // We'll create this new CSS file next
 import { FiDownload } from "react-icons/fi";
 
 // 1. Importa tu archivo CV desde la carpeta de assets (o donde lo tengas guardado)
-import cvFile from "../assets/Lautaro_Moreno_CV.pdf";
+import cvFile from "../assets/Lautaro-Moreno-CV.pdf";
 
 export default function Home() {
   const profileImageUrl = "./Foto.png"; // You can change this to a different image for the home page

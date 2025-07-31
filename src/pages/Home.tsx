@@ -5,7 +5,7 @@ import { FiDownload } from "react-icons/fi";
 import cvFile from "../assets/Lautaro_Moreno_CV.pdf";
 
 export default function Home() {
-  const profileImageUrl = "./Foto.png"; // You can change this to a different image for the home page
+  const profileImageUrl = "./Foto.jpg"; // You can change this to a different image for the home page
 
   return (
     <section className="home-section">

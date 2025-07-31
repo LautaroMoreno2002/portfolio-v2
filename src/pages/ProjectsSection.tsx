@@ -177,7 +177,7 @@ const ProjectsSection: React.FC = () => {
       <div className="projects-container">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }} // 'whileInView' es genial para animar al hacer scroll
+          animate={{ opacity: 1, y: 0 }} // 'whileInView' es genial para animar al hacer scroll
           viewport={{ once: true, amount: 0.5 }} // Configuración para whileInView
           transition={{ duration: 0.5 }}
           className="projects-header"
@@ -192,7 +192,7 @@ const ProjectsSection: React.FC = () => {
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible" // También animamos la grilla al verla
+          animate="visible" // También animamos la grilla al verla
           viewport={{ once: true, amount: 0.2 }}
         >
           {projects.map((project) => (

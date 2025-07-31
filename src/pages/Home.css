@@ -23,13 +23,13 @@
 
 @keyframes glowShadow {
   0% {
-    filter: drop-shadow(0 0 8px var(--accent-primary));
+    box-shadow: 0 0 8px var(--accent-primary);
   }
   50% {
-    filter: drop-shadow(0 0 16px var(--accent-primary));
+    box-shadow: 0 0 20px var(--accent-primary);
   }
   100% {
-    filter: drop-shadow(0 0 8px var(--accent-primary));
+    box-shadow: 0 0 8px var(--accent-primary);
   }
 }
 
@@ -137,12 +137,16 @@
 
 .home-image {
   width: 100%;
-  max-width: 350px; /* Base max-width */
+  max-width: 500px; /* Base max-width */
   height: auto;
   border-radius: 12px;
   object-fit: cover;
   aspect-ratio: 3/4;
   animation: glowShadow 2s ease-in-out infinite;
+  mask-image: linear-gradient(
+    var(--accent-primary) 80%,
+    transparent
+  );
 }
 /* --- Botón de CV --- */
 .cv-button {
